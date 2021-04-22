@@ -171,11 +171,84 @@ function isNonAttackPlacementsClone(row, col, colPlacements) {
   return true;
 }
 
-console.log(totalNQueens(4));
+// console.log(totalNQueens(4));
+
+// Choices: Every digit in range of 1-9 where we can place a digit in a open cell until we reach the end of the board.
+// Constraints: A digit can only be placed in a subgrid, row, and column that ranges 1-9, and unique.
+
+function sudokuSolver(board) {
+  solveSudokuPartial(0, 0, board);
+  return board;
+}
+
+function solveSudokuPartial(row, col, board) {
+  let currentRow = row,
+    currentCol = col;
+  // IF we are passed now we want to reset our current column and move down to our next row
+  if (currentCol === board[currentRow].length) {
+    currentRow++;
+    currentCol = 0;
+    if (currentRow === board.length) return true;
+  }
+  // If the board is empty
+  if (board[currentRow][currentCol] === 0) {
+    // We can generate all possible numbers
+    return tryDigitsAtPosition(currentRow, currentCol, board);
+  }
+  return solveSudokuPartial(currentRow, currentCol + 1, board);
+}
+
+function tryDigitsAtPosition(row, col, board) {
+  for (let digit = 1; digit < 10; digit++) {
+    if (isValidPosition(digit, row, col, board)) {
+      board[row][col] = digit;
+      // The
+      if (solveSudokuPartial(row, col + 1, board)) return true;
+    }
+  }
+  // If we can not solve the board we will undo our current scribble and return false
+  board[row][col] = 0;
+  return false;
+}
+
+function isValidPosition(value, row, col, board) {
+  // To check if a row is available
+  const rowIsValid = !board[row].includes(value);
+  // To check if check if this value is availible in this col
+  const colIsValid = !board.map((row) => row[col]).includes(value);
+
+  if (!rowIsValid || !colIsValid) return false;
+  // check for subgrid
+  const subgridRowStart = Math.floor(row / 3) * 3;
+  const subgridColStart = Math.floor(col / 3) * 3;
+
+  for (let rowIdx = 0; rowIdx < 3; rowIdx++) {
+    for (let colIdx = 0; colIdx < 3; colIdx++) {
+      const rowToCheck = subgridRowStart + rowIdx;
+      const colToCheck = subgridColStart + colIdx;
+      const existingValue = board[rowToCheck][colToCheck];
+      // this check is to check if the the value that we passed in is located in any of our subgrids
+      if (existingValue === value) return false;
+    }
+  }
+  return true;
+}
 
 // Choices is to include or exclude
 // constraints must not contain duplicates
 // make recursive decisions once choices and constraints are valids. If decision doesn;t work we will backtrack and make other decision.
+const board = [
+  [7, 8, 0, 4, 0, 0, 1, 2, 0],
+  [6, 0, 0, 0, 7, 5, 0, 0, 9],
+  [0, 0, 0, 6, 0, 1, 0, 7, 8],
+  [0, 0, 7, 0, 4, 0, 2, 6, 0],
+  [0, 0, 1, 0, 5, 0, 9, 3, 0],
+  [9, 0, 4, 0, 6, 0, 0, 0, 5],
+  [0, 7, 0, 3, 0, 0, 0, 1, 2],
+  [1, 2, 0, 0, 0, 7, 4, 0, 0],
+  [0, 4, 9, 2, 0, 6, 0, 0, 7],
+];
+console.log(sudokuSolver(board));
 
 // Solution 1
 function powerset(nums, idx = null) {
