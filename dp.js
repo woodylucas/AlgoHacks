@@ -36,7 +36,7 @@ function maxSubarray(nums) {
   }
   return maxSoFar;
 }
-// console.log(maxSubarray([5, 4, -1, 7, 8]));
+console.log(maxSubarray([2, 1, 3, 4]));
 
 function maxProfit(prices) {
   let minimumPrice = Infinity;
@@ -136,4 +136,49 @@ function memoPartition(nums, sum, idx, memo = []) {
   return memo[idx][sum];
 }
 
-console.log(canPartitionTopDown([1, 5, 11, 5]));
+// console.log(canPartitionTopDown([1, 5, 11, 5]));
+
+// Fibonacci Sequence
+// Top Down Memo: 0, 1, 1, 2, 3, 5, 8, …
+function fibonacciMemo(n, memo = []) {
+  if (memo[n] !== undefined) return memo[n];
+  if (n <= 0) return 0;
+  if (n < 2) return 1;
+  memo[n] = fibonacciMemo(n - 1, memo) + fibonacciMemo(n - 2, memo);
+  return memo[n];
+}
+// console.log(fibonacciMemo(6));
+
+function uniquePaths(m, n, memo = []) {
+  memo[m] = memo[m] || [];
+  if (memo[m][n] !== undefined) return memo[m][n];
+  if (m === 1 && n === 1) return 1;
+  if (m === 0 || n === 0) return 0;
+  memo[m][n] = uniquePaths(m - 1, n, memo) + uniquePaths(m, n - 1, memo);
+  return memo[m][n];
+}
+
+function fibonacciBottomsUp(n) {
+  const lastTwo = [0, 1];
+  let count = 3;
+  while (count <= n) {
+    const nextFib = lastTwo[0] + lastTwo[1];
+    lastTwo[0] = lastTwo[1];
+    lastTwo[1] = nextFib;
+    count++;
+  }
+  return n > 1 ? lastTwo[1] : lastTwo[0];
+}
+// console.log(fibonacciBottomsUp(7));
+
+function numOfStepsTD(n, memo = []) {
+  if (n <= 1) return 1;
+  if (n === 2) return 2;
+  if (memo[n] === undefined) {
+    let oneStep = numOfStepsTD(n - 1, memo),
+      twoSteps = numOfStepsTD(n - 2, memo),
+      threeSteps = numOfStepsTD(n - 3, memo);
+    memo[n] = oneStep + twoSteps + threeSteps;
+  }
+  return memo[n];
+}
