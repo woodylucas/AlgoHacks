@@ -1,6 +1,6 @@
 # Interview Preparation
 Just the overall process of landing the dream job. 
-# Resources Online
+## Resources Online
 Algoexpert 
 
 Educative.io
@@ -9,14 +9,14 @@ Algomonster
 
 Hackerearth 
 
-# Reading Sources 
+## Reading Sources 
 Elements of Programming Interviews in Python
 
 Eloquent JavaScript: A Modern Introduction to Programming
 
 Grokking Algorithms
 
-# Youtube Resources 
+## Youtube Resources 
 [Nick White](https://www.youtube.com/channel/UC1fLEeYICmo3O9cUsqIi7HA)
 
 [NeetCode](https://www.youtube.com/channel/UC_mYaQAE6-71rjSN6CeCA-g)
@@ -27,4 +27,3 @@ Grokking Algorithms
 
 [Back2BackSWE](https://www.youtube.com/channel/UCmJz2DV1a3yfgrR7GqRtUUA)
 
-# Leetcode
