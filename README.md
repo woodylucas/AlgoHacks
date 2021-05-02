@@ -26,5 +26,6 @@ Grokking Algorithms
 [Kevin Naughton Jr.](https://www.youtube.com/channel/UCKvwPt6BifPP54yzH99ff1g)
 
 [Back2BackSWE](https://www.youtube.com/channel/UCmJz2DV1a3yfgrR7GqRtUUA)
+
 [Kenny Talks Code](https://www.youtube.com/channel/UChQRyFNgb7lbfzoacC5hk_A)
 
