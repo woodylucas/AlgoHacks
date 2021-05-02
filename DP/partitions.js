@@ -73,3 +73,62 @@ function minPartition(idx, sum1, sum2, nums, memo = []) {
   }
   return memo[idx][sum1];
 }
+
+function countSubset(num, sum) {
+  return subsetHelper(0, num, sum);
+}
+
+function subsetHelper(idx, nums, target, memo = []) {
+  if (target === 0) return 1;
+  if (nums.length === 0 || idx >= nums.length) return 0;
+  memo[idx] = memo[idx] || [];
+
+  if (memo[idx][target] === undefined) {
+    let includedSum = 0,
+      excluded = 0;
+    if (nums[idx] <= target) {
+      includedSum = subsetHelper(idx + 1, nums, target - nums[idx], memo);
+    }
+    excluded = subsetHelper(idx + 1, nums, target, memo);
+    memo[idx][target] = includedSum + excluded;
+  }
+  return memo[idx][target];
+}
+
+function targetSum(num, s) {
+  return targetSumHelper(0, num, s);
+}
+
+function targetSumHelper(idx, num, target, memo = []) {
+  if (idx >= num.length) {
+    return target === 0 ? 1 : 0;
+  }
+  memo[idx] = memo[idx] || [];
+  if (memo[idx][target] === undefined) {
+    let added = targetSumHelper(idx + 1, num, target + num[idx], memo);
+    let subtract = targetSumHelper(idx + 1, num, target - num[idx], memo);
+    memo[idx][target] = added + subtract;
+  }
+  return memo[idx][target];
+}
+
+function solveRodCutting(lengths, prices, n) {
+  return rodCuttingHelper(0, lengths, prices, n);
+}
+
+function rodCuttingHelper(idx, lengths, prices, n, memo = []) {
+  if (n === 0 || idx >= prices.length || lengths.length === 0) return 0;
+  memo[idx] = memo[idx] || [];
+  if (memo[idx][n] === undefined) {
+    let included = 0,
+      excluded = 0;
+    if (lengths[idx] <= n) {
+      included =
+        prices[idx] +
+        rodCuttingHelper(idx, lengths, prices, n - lengths[idx], memo);
+    }
+    excluded = rodCuttingHelper(idx + 1, lengths, prices, n, memo);
+    memo[idx][n] = Math.max(included, excluded);
+  }
+  return memo[idx][n];
+}
