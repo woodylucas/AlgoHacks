@@ -15,3 +15,22 @@ function climbStairs(n, memo = []) {
     climbStairs(n - 3, memo)
   );
 }
+// Jump Game II
+function jump(array) {
+  return minJumpsHelper(0, array);
+}
+
+function minJumpsHelper(idx, jumps, memo = []) {
+  if (idx >= jumps.length - 1) return 0;
+  if (jumps[idx] === 0) return Infinity;
+  if (memo[idx] !== undefined) return memo[idx];
+  let totalJumps = Infinity;
+  let start = idx + 1;
+  let end = idx + jumps[idx];
+  while (start < jumps.length && start <= end) {
+    const minJumps = minJumpsHelper(start++, jumps, memo);
+    if (minJumps !== Infinity) totalJumps = Math.min(totalJumps, minJumps + 1);
+  }
+  memo[idx] = totalJumps;
+  return memo[idx];
+}
