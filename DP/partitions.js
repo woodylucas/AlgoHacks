@@ -116,6 +116,7 @@ function solveRodCutting(lengths, prices, n) {
   return rodCuttingHelper(0, lengths, prices, n);
 }
 
+// Unbounded Partition
 function rodCuttingHelper(idx, lengths, prices, n, memo = []) {
   if (n === 0 || idx >= prices.length || lengths.length === 0) return 0;
   memo[idx] = memo[idx] || [];
@@ -131,4 +132,48 @@ function rodCuttingHelper(idx, lengths, prices, n, memo = []) {
     memo[idx][n] = Math.max(included, excluded);
   }
   return memo[idx][n];
+}
+
+function coinChange(denominations, total) {
+  return waysToMakeChange(0, denominations, total);
+}
+function waysToMakeChange(idx, denoms, amount, memo = []) {
+  if (amount === 0) return 1;
+  if (idx >= denoms.length || denoms.length === 0) return 0;
+  memo[idx] = memo[idx] || [];
+  if (memo[idx][amount] === undefined) {
+    let included = 0,
+      excluded = 0;
+    if (denoms[idx] <= amount) {
+      included = waysToMakeChange(idx, denoms, amount - denoms[idx], memo);
+    }
+    excluded = waysToMakeChange(idx + 1, denoms, amount, memo);
+    memo[idx][amount] = included + excluded;
+  }
+  return memo[idx][amount];
+}
+
+function minChange(denominations, total) {
+  const minCoins = minCoinsHelper(0, denominations, total);
+  return minCoins !== Infinity ? minCoins : -1;
+}
+
+function minCoinsHelper(idx, denoms, total, memo = []) {
+  if (total === 0) return 0;
+  if (idx === denoms.length || denoms.length === 0) return Infinity;
+  memo[idx] = memo[idx] || [];
+  let included = Infinity,
+    excluded = 0;
+  if (memo[idx][total] === undefined) {
+    if (denoms[idx] <= total) {
+      let result = minCoinsHelper(idx, denoms, total - denoms[idx], memo);
+      if (result !== Infinity) {
+        included = result + 1;
+      }
+    }
+    excluded = minCoinsHelper(idx + 1, denoms, total, memo);
+    memo[idx][total] = Math.min(included, excluded);
+  }
+
+  return memo[idx][total];
 }
