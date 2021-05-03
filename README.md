@@ -39,6 +39,13 @@ Grokking Algorithms
 ## Backtracking
 
 ## Dynamic Programming
+Dynamic Prgrammimg is an optimization over plain recursion. Wherever recurison tools have repeated calls for the same input (overlapping subproblems). We optimize it using dynamic programming. The idea is to simply store the results of subproblems, so we do not have to re-compute them need later. The simple opitmization reduces time complexities from from exponential to polynomial. 
 
-[Patterns](https://leetcode.com/discuss/general-discussion/458695/dynamic-programming-patterns)
+![image](https://user-images.githubusercontent.com/34947061/116868517-e9499300-abdc-11eb-858b-11522851c0a7.png)
+
+Dynamic Prgrammimg is an optimization over plain recursion. Wherever recurison tools have repeated calls for the same input (overlapping subproblems). We optimize it using dynamic programming. The idea is to simply store the results of subproblems, so we do not have to re-compute them need later. The simple opitmization reduces time complexities from from exponential to polynomial. 
+
+### Types of Dynamic Programming problems.
+
+[Resources](https://leetcode.com/discuss/general-discussion/458695/dynamic-programming-patterns)
 
