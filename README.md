@@ -4,7 +4,7 @@ Just the overall process of landing the dream job.
 ## Resources Online
 [Algoexpert](https://www.algoexpert.io/product) 
 
-[Educative.io/ 14 Patterns](https://www.educative.io/)
+[Educative.io/](https://www.educative.io/courses/grokking-the-coding-interview)
 
 [Algomonster](https://algo.monster/dashboard)
 
