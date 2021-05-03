@@ -34,3 +34,33 @@ function minJumpsHelper(idx, jumps, memo = []) {
   memo[idx] = totalJumps;
   return memo[idx];
 }
+
+function minDifficulty(jobDifficulty, d) {
+  if (jobDifficulty.length < d) return -1;
+  return difficultyHelper(jobDifficulty, d, 0, 0);
+}
+
+function difficultyHelper(jobDifficulty, days, idx, numDays, memo = []) {
+  if (numDays === days) {
+    return idx === jobDifficulty.length ? 0 : Infinity;
+  }
+
+  memo[idx] = memo[idx] || [];
+
+  if (memo[idx][numDays] === undefined) {
+    let end = jobDifficulty.length - days + numDays;
+    let minTask = Infinity;
+    let maxTask = -Infinity;
+
+    for (let i = idx; i <= end; i++) {
+      maxTask = Math.max(maxTask, jobDifficulty[i]);
+      minTask = Math.min(
+        minTask,
+        maxTask +
+          difficultyHelper(jobDifficulty, days, i + 1, numDays + 1, memo)
+      );
+    }
+    memo[idx][numDays] = minTask;
+  }
+  return memo[idx][numDays];
+}
