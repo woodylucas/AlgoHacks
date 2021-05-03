@@ -75,7 +75,54 @@ The problems is about optimal way to play a game.
 
 ### Types
 
+[Pattern Resources](https://leetcode.com/discuss/general-discussion/458695/dynamic-programming-patterns)
+
 #### Sequence
 
-[Resources](https://leetcode.com/discuss/general-discussion/458695/dynamic-programming-patterns)
+This is the most common type of DP problem and a good place to get a feel of dynamic programming. In the recurrence relation,dp[i] normally means max/min/best value for the sequence ending at index i.
+
+Fib
+Climbing Stairs
+House robber - find maximum amount of loot
+Coin change - find minimum amount of coins needed to make up an amount
+
+#### Grid 
+
+Robot unique paths - number of ways for robot to move from top left to bottom right
+Min path sum - find path in a grid with minimum cost
+Maximal square - find maximal square of 1s in a grid of 0s and 1s
+
+#### Dynamic Number of Subproblems 
+
+This is similar to "Sequence DP" except dp[i] depends on a dynamic number of subproblems, e.g. dp[i] = max(d[j]..) for j from 0 to i.
+
+Longest Increasing Subsequence - find the longest increasing subsequence of an array of numbers
+Buy/sell stock with at most K transactions - maximize profit by buying and selling stocks using at most K transaction
+
+#### Partition 
+
+Divide into twos: 
+
+0/1 Knapsack 
+Decode ways - how many ways to decode a string
+Word break - partition a word into words in a dictionary
+Triangle - find the smallest sum path to traverse a triangle of numbers from top to bottom
+Partition to Equal Sum Subsets - partition a set of numbers into two equal-sum subsets
+
+#### Two Sequences 
+
+This type of problem has two sequences in their problem statement. dp[i][j] represents the max/min/best value for the first sequence ending in index i and second sequence ending in index j.
+
+Edit distance - find the minimum distance to edit one string to another
+Longest common subsequence - find the longest common subsequence that is common in two sequences
+
+#### Game Theory 
+
+This type of problem asks for whether a player can win a decision game. The key to solving game theory problems is to identify winning state, and formulating a winning state as a state that returns a losing state to the opponent
+
+Coins in a line
+Divisor game
+Stone game
+
+
 
