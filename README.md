@@ -1,9 +1,10 @@
 # Interview Preparation
 Just the overall process of landing the dream job. 
+
 ## Resources Online
 [Algoexpert](https://www.algoexpert.io/product) 
 
-[Educative.io](https://www.educative.io/)
+[Educative.io/ 14 Patterns](https://www.educative.io/)
 
 [Algomonster](https://algo.monster/dashboard)
 
@@ -14,6 +15,10 @@ Just the overall process of landing the dream job.
 [Leetcode](https://leetcode.com/)
 
 [Hackerank](https://www.hackerrank.com/dashboard)
+
+[Leetcode Patterns](https://seanprashad.com/leetcode-patterns/)
+
+[75 Leetcode Questions](https://www.teamblind.com/post/New-Year-Gift---Curated-List-of-Top-100-LeetCode-Questions-to-Save-Your-Time-OaM1orEU)
 
 ## Reading Sources 
 Elements of Programming Interviews in Python
