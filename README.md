@@ -53,5 +53,29 @@ What state do we need to decide which child nodes should be visited next and whi
 
 3. DFS + memoization
 
+### Bottoms Up 
+
+![image](https://user-images.githubusercontent.com/34947061/116869152-311cea00-abde-11eb-88ab-ff1a2edd8ce5.png)
+
+For the bottom-up dynamic programming, we want to start with subproblems first and work our way up to the main problem. This is normally done by filling up a table.
+
+For the Fibonacci problem, we want to fill a one-dimensional table dp where each entry at index i represents value of the Fibonacci number at index i. The last element of the array is the result we want to return.
+
+The order of filling matters because we cannot calculate dp[i] before we filled dp[i - 1] and dp[i - 2].
+
+### When to use dynamic programming?
+
+Mathematically, dynamic programming is an optimization method on one or more sequences (e.g. arrays, matrices). So questions asking about optimal way to do something on one or more sequences is often a good candidate for dynamic programming. Signs of dynamic programming:
+
+The problem asks for the maximum/longest, minimal/shortest value/cost/profit you can get from doing operations on a sequence.
+You've tried greedy but it sometimes it gives the wrong solution. This often means you have to consider subproblems for an optimal solution.
+The problem asks for how many ways there are to do something. This can often be solved by DFS + memoization, i.e. top-down dynamic programming.
+Partition a string/array into sub-sequences so that certain condition is met. This is often well-suited for top-down dynamic programming.
+The problems is about optimal way to play a game.
+
+### Types
+
+#### Sequence
+
 [Resources](https://leetcode.com/discuss/general-discussion/458695/dynamic-programming-patterns)
 
