@@ -53,7 +53,7 @@ Vertex is an essential part of a graph. A collection of vertices forms a graph i
 
 #### Edges 
 
-An edge is a link between two vertices. It can be directed or unidirected. An unidirected edge is similar to Facebook friends. You both follow each other. So you have no sense of direction. That can be traversed in either direction. A directed edge on the other hand is similar to Instagram followers you can follow anyone you like, but they don't have to follow you back. 
+An edge is a link between two vertices. It can be directed or unidirected. An unidirected edge is similar to Facebook friends. You both follow each other. So you have no sense of direction. That can be traversed in either direction. A directed edge on the other hand is similar to Instagram followers, you can follow anyone you like, but they don't have to follow you back. 
 
 ## Backtracking
 
