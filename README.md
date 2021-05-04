@@ -46,7 +46,14 @@ Grokking Algorithms
 Graphs are non linear data structures that contain vertices, and edges. Can also be defined as a set of nodes that are connected to form of a network. 
 
 ### Two forms of a graph 
+
 #### Vertex
+
+Vertex is an essential part of a graph. A collection of vertices forms a graph in a sense they are similar to linked list nodes.
+
+#### Edges 
+
+An edge is a link between two vertices. It can be directed or unidirected. An unidirected edge is similar to Facebook friends. You both follow each other. So you have no sense of direction. That can be traversed in either direction. A directed edge on the other hand is similar to Instagram followers you can follow anyone you like, but they don't have to follow you back. 
 
 ## Backtracking
 
