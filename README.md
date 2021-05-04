@@ -45,8 +45,8 @@ Grokking Algorithms
 ## Graph 
 Graphs are non linear data structures that contain vertices, and edges. Can also be defined as a set of nodes that are connected to form of a network. 
 
-### Two Basic Forms of a graph: Vertex, and Edges. 
-A *vertex is 
+### Two forms of a graph 
+#### Vertex
 
 ## Backtracking
 
