@@ -44,6 +44,7 @@ Grokking Algorithms
 
 ## Graph 
 Graphs are non linear data structures that contain vertices, and edges. Can also be defined as a set of nodes that are connected to form of a network. 
+[8-Essential Graphs](https://www.freecodecamp.org/news/8-essential-graph-algorithms-in-javascript/)
 
 ### Two forms of a graph 
 
