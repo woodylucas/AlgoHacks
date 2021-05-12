@@ -27,6 +27,8 @@ Eloquent JavaScript: A Modern Introduction to Programming
 
 Grokking Algorithms
 
+[Patterns Blog](https://betterprogramming.pub/the-ultimate-strategy-to-preparing-for-the-coding-interview-ee9f7eb439f3)
+
 ## Youtube Resources 
 [Nick White](https://www.youtube.com/channel/UC1fLEeYICmo3O9cUsqIi7HA)
 
