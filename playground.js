@@ -20,3 +20,5 @@ function wordWrap(words) {
 }
 
 console.log(wordWrap(["Tom", "is", "a", "dragon", "that", "breathes", "fire"]));
+
+// Class Prototypes
