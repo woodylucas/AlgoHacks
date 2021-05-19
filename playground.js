@@ -22,3 +22,58 @@ function wordWrap(words) {
 console.log(wordWrap(["Tom", "is", "a", "dragon", "that", "breathes", "fire"]));
 
 // Class Prototypes
+
+function reverseString(string) {
+  const characters = string.split("");
+  return reversal(characters);
+}
+
+function reversal(characters) {
+  let leftIdx = 0,
+    rightIdx = characters.length - 1;
+  while (leftIdx < rightIdx) {
+    swap(characters, leftIdx, rightIdx);
+    leftIdx++;
+
+    rightIdx--;
+  }
+  return characters.join("");
+}
+
+const swap = (arr, idx1, idx2) =>
+  ([arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]]);
+
+function validPalindrome(string) {
+  let leftIdx = 0,
+    rightIdx = string.length - 1;
+
+  string = string.replace(/[^\w\s]|_/g, "").replace(/\s+/g, "");
+
+  while (leftIdx < rightIdx) {
+    if (string[leftIdx] !== string[rightIdx]) return false;
+    leftIdx++;
+    rightIdx--;
+  }
+  return true;
+}
+
+function vaccumCleaner(string) {
+  let x = 0,
+    y = 0;
+
+  for (const char of string) {
+    if (char === "L") {
+      x--;
+    } else if (char === "R") {
+      x++;
+    } else if (char === "U") {
+      y--;
+    } else if (char === "D") {
+      y++;
+    }
+  }
+
+  return x === 0 && y === 0;
+}
+
+function correctCapitalization(string) {}
