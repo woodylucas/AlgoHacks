@@ -77,3 +77,27 @@ function vaccumCleaner(string) {
 }
 
 function correctCapitalization(string) {}
+
+function addBinary(a, b) {
+  let idx1 = a.length - 1;
+  let idx2 = b.length - 1;
+  let carry = 0;
+  let binary = "";
+
+  while (idx1 >= 0 || idx2 >= 0 || carry !== 0) {
+    let digit1 = idx1 >= 0 ? a[idx1] - "0" : 0;
+    let digit2 = idx2 >= 0 ? b[idx2] - "0" : 0;
+
+    let sum = digit1 + digit2 + carry;
+    let solution = sum % 2;
+    carry = Math.floor(sum / 2);
+    binary = solution + binary;
+
+    idx1--;
+    idx2--;
+  }
+
+  return binary;
+}
+
+console.log(addBinary("11", "1"));
