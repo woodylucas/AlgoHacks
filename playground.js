@@ -19,7 +19,7 @@ function wordWrap(words) {
   return longest;
 }
 
-console.log(wordWrap(["Tom", "is", "a", "dragon", "that", "breathes", "fire"]));
+// console.log(wordWrap(["Tom", "is", "a", "dragon", "that", "breathes", "fire"]));
 
 // Class Prototypes
 
@@ -100,4 +100,18 @@ function addBinary(a, b) {
   return binary;
 }
 
-console.log(addBinary("11", "1"));
+// console.log(addBinary("11", "1"));
+
+function longestCommonPrefix(words) {
+  if (words.length === 0) return "";
+  let prefix = words[0]; // assign the first word to the prefix to use a checker
+
+  for (let i = 1; i < words.length; i++) {
+    while (words[i].indexOf(prefix) !== 0) {
+      prefix = prefix.slice(0, prefix.length - 1);
+    }
+  }
+  return prefix;
+}
+
+console.log(longestCommonPrefix(["colorado", "color", "cold"]));
