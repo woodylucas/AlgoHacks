@@ -51,4 +51,4 @@ for (const word of words) {
   trie.insert(word);
 }
 
-console.log(trie.startsWith("ty"));
+console.log(trie.autocomplete("i"));
