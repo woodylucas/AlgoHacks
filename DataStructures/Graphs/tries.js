@@ -10,7 +10,7 @@ class Trie {
       if (!(char in node)) node[char] = {};
       node = node[char];
     }
-    node[this.endOfWord] = word;
+    node[this.endOfWord] = true;
   }
 
   search(word) {
@@ -22,21 +22,33 @@ class Trie {
     return this.endOfWord in node;
   }
 
-  startsWith(prefix) {
+  autocomplete(prefix) {
+    const autoCompleteWords = [];
     let node = this.root;
     for (const char of prefix) {
-      if (!(char in node)) return false;
+      if (!(char in node)) return autoCompleteWords;
       node = node[char];
     }
-    return true;
+    this.searchWords(node, autoCompleteWords, prefix);
+    return autoCompleteWords;
   }
-}
-function longestWords(words) {
-  const trie = new Trie();
-  for (const char of words) {
-    trie.insert(char);
+  searchWords(node, autocomplete, word) {
+    if (!node) return;
+    if (node["*"]) {
+      autocomplete.push(word);
+    }
+    for (const char in node) {
+      this.searchWords(node[char], autocomplete, word + char);
+    }
   }
-  console.log(trie);
 }
 
-console.log(longestWords(["w", "wo", "wor", "worl", "world"]));
+const words = ["i", "island", "iroman", "type", "t", "tie", "typehead"];
+
+const trie = new Trie();
+
+for (const word of words) {
+  trie.insert(word);
+}
+
+console.log(trie.startsWith("ty"));
